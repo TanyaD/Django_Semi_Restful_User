@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> 
+</head>
+<body>
+        <div class="container">
+            <h2>Users</h2>
+                <table class="table table-condensed">
+                        
+                  <thead>
+                     
+                        <tr>
+                            <th>id</th>
+                            <th>Full name</th>
+                            <th>Email</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    
+                  </thead>
+                  {% for user in users%} 
+                  <tbody>
+                        <tr>
+                                 
+                            <td>
+                                <a href="#">{{user.id}}</a>
+                            </td>
+                            <td><a href="/users/{{user.id}}">{{user.full_name}}</a></td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.created_at}}</td>
+                            
+                            <td>
+                                <a href="/users/{{user.id}}">Show</a>
+                                <a href="/users/{{user.id}}/edit">Edit</a>
+                                <a href="/users/{{user.id}}/destroy">Delete</a>
+                            </td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                    {% endfor %}
+                </table>
+                <a href="/users/new">Add a new user</a>
+                
+        </div>
+              
+</body>
+</html>
